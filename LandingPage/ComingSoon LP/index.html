@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Coming Soon LP</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div class="container">
+
+			<div class="content">
+				<h3 class="title">Opening soon</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			<div class="count-down">
+				<div class="box">
+					<h3 id="day">00</h3>
+					<span>day</span>
+				</div>
+				<div class="box">
+					<h3 id="hour">00</h3>
+					<span>hour</span>
+				</div>
+				<div class="box">
+					<h3 id="minute">00</h3>
+					<span>minute</span>
+				</div>
+				<div class="box">
+					<h3 id="second">00</h3>
+					<span>second</span>
+				</div>
+			</div>
+			<a href="#" class="btn">Notify Me!</a>
+			</div>
+
+			<div class="image">
+			<img src="create-animate.svg" alt="">
+			</div>
+
+		</div>
+		<script>
+			let countDate = new Date('nov 2, 2023 00:00:00').getTime();
+			function countDown() {
+				let now = new Date().getTime();
+				gap = countDate - now;
+
+				let second = 1000;
+				let minute = second * 60;
+				let hour = minute * 60;
+				let day = hour * 24;
+
+				let d = Math.floor(gap / (day));
+				let h = Math.floor((gap % (day)) / (hour));
+				let m = Math.floor((gap % (hour)) / (minute));
+				let s = Math.floor((gap % (minute)) / (second));
+
+				document.getElementById('day').innerText = d;
+				document.getElementById('hour').innerText = h;
+				document.getElementById('minute').innerText = m;
+				document.getElementById('second').innerText = s;
+
+			}
+
+			setInterval(function(){
+				countDown();
+			},1000)
+		</script>
+	</body>
+</html>
